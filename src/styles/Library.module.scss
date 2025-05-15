@@ -1,0 +1,345 @@
+.MoviePage {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 1rem 0.5rem;
+  padding-left: 5rem;
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modalContent {
+      background: var(--background);
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      .closeButton {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: var(--primary-2);
+        font-size: 1.5rem;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: var(--background-2);
+          transform: rotate(90deg);
+        }
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+        color: var(--primary-2);
+      }
+
+      p {
+        margin-bottom: 1rem;
+        color: var(--primary-1);
+      }
+
+      .codeBlock {
+        background: var(--background-2);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+
+        pre {
+          color: var(--primary-2);
+          margin-bottom: 0.5rem;
+          font-weight: bold;
+        }
+
+        code {
+          display: block;
+          white-space: pre;
+          color: var(--primary-1);
+          font-family: monospace;
+          margin-bottom: 1rem;
+        }
+      }
+
+      .modalActions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+
+        button {
+          background: var(--primary-2);
+          color: var(--background);
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: var(--primary-1);
+            transform: translateY(-2px);
+          }
+
+          &:first-child {
+            background: var(--background-2);
+            color: var(--primary-2);
+
+            &:hover {
+              background: var(--background-3);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+
+      .actionButton {
+        background: var(--primary-2);
+        color: var(--background);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: var(--primary-1);
+          transform: translateY(-2px);
+        }
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+        }
+      }
+    }
+  }
+  .category {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    select {
+      background-color: var(--bg-color) !important;
+      color: var(--primary-2) !important;
+      border: 1px solid var(--primary-2);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-width: 120px;
+
+      &:hover {
+        border-color: var(--ascent-color);
+      }
+
+      &:focus {
+        border-color: var(--ascent-color);
+        box-shadow: 0 0 0 2px rgba(var(--ascent-color-rgb), 0.2);
+      }
+
+      option {
+        background-color: var(--bg-color) !important;
+        color: var(--primary-2) !important;
+        padding: 8px !important;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:checked {
+          background-color: var(--ascent-color) !important;
+          color: var(--bg-color) !important;
+        }
+      }
+    }
+
+    select::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    select::-webkit-scrollbar-track {
+      background: var(--background);
+    }
+
+    select::-webkit-scrollbar-thumb {
+      background-color: var(--primary-2);
+      border-radius: 4px;
+    }
+
+    select::-webkit-scrollbar-thumb:hover {
+      background-color: var(--ascent-color);
+    }
+
+    .filter {
+      background-color: var(--background);
+      color: var(--primary-2);
+      border: 1px solid var(--primary-2);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: var(--ascent-color);
+        color: var(--ascent-color);
+      }
+    }
+  }
+  .movieList {
+    padding: 3rem;
+    width: 100vw;
+    // min-height:100vh ;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem 1rem;
+    color: var(--primary-2);
+    svg {
+      cursor: pointer;
+      position: absolute;
+      top: 0rem;
+      font-size: 1.3rem;
+    }
+    .watchlistItems {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      position: relative;
+    }
+
+    .loading {
+      height: 15rem;
+      width: 10rem;
+    }
+    .watchlistItems {
+      max-width: 10rem;
+    }
+  }
+  .pagination {
+    list-style: none;
+    // height: 31.5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    cursor: pointer;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+  }
+  .page_item {
+    list-style: none;
+    padding: 2px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  // svg{
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   font-size: 2rem;
+  //   color: var(--primary-2);
+  // }
+}
+
+.inactive {
+  cursor: pointer;
+  color: var(--primary-2);
+  fill: var(--primary-2);
+}
+
+.active {
+  cursor: pointer;
+  color: var(--ascent-color) !important;
+  fill: var(--ascent-color) !important;
+}
+
+.paginateActive {
+  background-color: var(--ascent-color);
+  border-radius: 0.5rem;
+  color: var(--primary-1);
+  a {
+    color: var(--primary-1);
+  }
+}
+.disabled {
+  svg {
+    opacity: 0.5 !important;
+    fill: var(--ascent-color);
+  }
+}
+
+@media (max-width: 769px) {
+  .MoviePage {
+    padding-left: unset;
+    padding: 1.5rem 1rem;
+    padding-bottom: 5rem;
+    .movieList {
+      padding: 1rem;
+      padding-left: 0.5rem;
+      gap: 1rem 0.5rem;
+      margin-bottom: 1.5rem;
+      svg {
+        // margin-top: 0.5rem;
+        cursor: pointer;
+      }
+      .loading {
+        height: 10rem;
+        width: 7rem;
+      }
+    }
+    .pagination {
+      max-width: 85vw;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+  }
+}

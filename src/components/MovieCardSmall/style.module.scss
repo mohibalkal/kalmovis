@@ -1,0 +1,88 @@
+.MovieCardSmall {
+  position: relative;
+  min-width: 10rem;
+  max-width: 10rem;
+  height: 15rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    z-index: 1;
+
+    .meta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .meta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: var(--primary-1);
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all 0.2s ease;
+
+    h3 {
+      margin: 0;
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--primary-2);
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        svg {
+          color: var(--ascent-color);
+        }
+      }
+
+      .year {
+        color: var(--primary-3);
+      }
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .MovieCardSmall {
+    min-width: 7rem;
+    max-width: 7rem;
+    height: 10rem;
+
+    .meta {
+      h3 {
+        font-size: 0.9rem;
+      }
+
+      .info {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+.watch {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loader {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 0;
+  }
+  .iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    z-index: 1;
+    ::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+  .centerControls {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    margin: 1rem auto;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .iconButton {
+    background: var(--bg-color);
+    color: var(--primary-3);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+
+    &:hover {
+      background: var(--primary-3);
+      color: var(--bg-color);
+    }
+  }
+
+  .source {
+    width: clamp(10rem, 30vw, 15rem);
+    padding: 0.5rem 1rem;
+    background: var(--bg-color);
+    color: var(--primary-3);
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    margin: 0;
+    line-height: 1rem;
+    z-index: 2;
+    // &[selected="true"]{
+    //   color: var(--ascent-color);
+    // }
+  }
+  .backBtn {
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    color: var(--watchPageBtn);
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    svg {
+      border: none;
+      outline: none;
+    }
+  }
+  .episodeControl {
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    color: var(--watchPageBtn);
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    svg {
+      border: none;
+      outline: none;
+    }
+    .inactive {
+      opacity: 0.5;
+    }
+    .nextSeason {
+      color: var(--ascent-color);
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .watch {
+    padding-left: unset;
+    padding: 1.5rem 0.5rem;
+    padding-bottom: 5rem;
+    .iframe {
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+    :where(.backBtn, .episodeControl) svg {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+    }
+  }
+}

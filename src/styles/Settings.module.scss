@@ -1,0 +1,356 @@
+.settingsPage {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: calc(100% - 64px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0.75rem;
+  background-color: var(--background);
+  color: var(--text);
+  margin-left: 64px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 128, 128, 0.3) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 4px;
+  }
+
+  h4 {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  .highlight {
+    color: var(--accent-color);
+  }
+  .logo {
+    width: clamp(20rem, calc(100vw - 2rem), 40rem);
+    position: absolute;
+    right: 0;
+    color: var(--primary-2);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 20rem;
+    }
+    p {
+      position: relative;
+      top: -5rem;
+    }
+  }
+  .settings {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: transparent;
+
+    .group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 0;
+      position: relative;
+      div {
+        width: 100%;
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+
+        label {
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: var(--text);
+          opacity: 0.7;
+          margin: 0;
+        }
+
+        select {
+          width: 100%;
+          height: 36px;
+          padding: 0 12px;
+          background-color: rgb(243, 244, 246);
+          color: rgb(55, 65, 81);
+          outline: none;
+          border: 1px solid rgb(229, 231, 235);
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all 0.15s ease;
+          font-size: 0.875rem;
+          appearance: none;
+          background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+          background-repeat: no-repeat;
+          background-position: right 0.3rem center;
+          background-size: 16px;
+
+          &:hover {
+            border-color: rgb(209, 213, 219);
+          }
+
+          &:focus {
+            border-color: rgb(209, 213, 219);
+            outline: none;
+            box-shadow: rgb(0 0 0 / 5%) 0px 1px 2px;
+          }
+          // span{
+          //   height: 5rem !important;
+          //   width: 5rem !important;
+          //   display: block;
+          // }
+          // &[selected="true"]{
+          //   color: var(--ascent-color);
+          // }
+        }
+      }
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: var(--accent-color);
+        color: var(--background);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+        font-size: 0.9rem;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      .logout,
+      a {
+        color: rgb(55, 65, 81);
+        cursor: pointer;
+        padding: 8px 12px;
+        border-radius: 6px;
+        background-color: rgb(243, 244, 246);
+        border: 1px solid rgb(229, 231, 235);
+        transition: all 0.15s ease;
+        font-size: 0.875rem;
+        text-decoration: none;
+        display: block;
+        width: 280px;
+        text-align: center;
+
+        &:hover {
+          border-color: rgb(209, 213, 219);
+        }
+      }
+      .downloadButton {
+        min-width: 80px;
+        height: 24px;
+        padding: 0 0.5rem;
+        background-color: var(--background);
+        color: var(--text-secondary);
+        outline: none;
+        border: 1px solid var(--border-color);
+        border-radius: 0.2rem;
+        text-align: center;
+        cursor: pointer;
+        font-size: 0.875rem;
+        transition: all 0.15s ease;
+
+        &:hover {
+          border-color: rgb(209, 213, 219);
+        }
+      }
+      .syncButton {
+        margin-top: 1rem;
+        width: 280px;
+
+        &:hover {
+          border-color: rgb(209, 213, 219);
+        }
+      }
+    }
+    .group2 {
+      @extend .group;
+      color: var(--primary-2);
+      input,
+      select,
+      button {
+        padding: 0.5rem 1rem;
+        outline: none;
+        border: 1px solid var(--primary-2);
+        border-radius: 0.5rem;
+        width: clamp(12rem, 50%, 20rem);
+        background: var(--primary-1);
+        color: var(--primary-3);
+        cursor: pointer;
+      }
+    }
+    .profileCard {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--background);
+      color: var(--text-secondary);
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+
+      span {
+        color: var(--accent-color);
+      }
+    }
+
+    .clear {
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      cursor: pointer;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.2rem;
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      transition: all 0.15s ease;
+      height: 24px;
+      min-width: 80px;
+
+      &:hover {
+        background-color: var(--border-color);
+      }
+    }
+
+    .noAudio {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      background-color: var(--background);
+      border-radius: 0.5rem;
+      border: 1px solid var(--border-color);
+    }
+
+    h1 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      border: none;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.authPage {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    padding: 1.5rem;
+  }
+}
+.signin {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 1px solid var(--primary-2);
+  border-radius: 0.5rem;
+  width: clamp(12rem, 50%, 20rem);
+  background: var(--primary-1);
+  color: var(--primary-3);
+  cursor: pointer;
+  margin: 1rem 0 3rem 1rem;
+}
+
+.errorData {
+  width: clamp(20rem, calc(100vw - 2rem), 40rem);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  // margin: 7rem 0;
+  h1 {
+    font-size: clamp(2rem, 50vw, 3.5rem);
+  }
+  p,
+  summary {
+    color: var(--primary-3);
+  }
+  h4 {
+    color: var(--primary-3);
+    margin-top: 1rem;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .settingsPage {
+    // min-height: 100vh;
+    height: auto;
+    position: relative;
+    top: -2rem;
+    .logo {
+      width: clamp(20rem, calc(100vw - 2rem), 40rem);
+      position: unset;
+      right: 0;
+      color: var(--primary-2);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      // margin-bottom: 2rem;
+      img {
+        width: 20rem;
+      }
+    }
+  }
+}
+@media (max-width: 769px) {
+  .settingsPage {
+    padding-left: unset;
+    padding: 0 1rem;
+    padding-bottom: 2.7rem;
+    overflow-x: hidden;
+    .settings {
+      height: 100%;
+      width: clamp(20rem, calc(100vw - 2rem), 40rem);
+      // background: red;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem 0;
+      padding-right: 1rem;
+      position: relative;
+      top: -2rem;
+      padding-bottom: 0;
+    }
+  }
+  .errorData {
+    margin: 7rem 0;
+  }
+}
